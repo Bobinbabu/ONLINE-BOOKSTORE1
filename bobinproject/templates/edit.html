@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;">ONLINE BOOK STORE</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div style="display: flex; ">
+            <label>Titile Name:</label>
+            <input type="text" name="Titilename" value="{{edit1.Titlename}}">&nbsp;&nbsp;&nbsp;
+            <label>Author Name:</label>
+            <input type="text" name="Authorname" value="{{edit1.Authorname}}">&nbsp;&nbsp;&nbsp;
+            <label>Genre:</label>
+            <input type="text" name="Genre" value="{{edit1.Genre}}">&nbsp;&nbsp;&nbsp;
+        </div>
+        <div style="display: flex; margin-top: 50px;">
+            <label>Description:</label>
+            <input type="text" name="Description" value="{{edit1.Description}}">&nbsp;&nbsp;&nbsp;
+            <label>Price:</label>
+            <input type="number" name="Price" value="{{edit1.Price}}">&nbsp;&nbsp;&nbsp;
+            <label>published date:</label>
+            <input type="date" name="date" value="{{edit1.Publisheddate}}">&nbsp;&nbsp;&nbsp;
+            <button type="submit">Click</button>
+        </div>
+    </form>
+</body>
+</html>

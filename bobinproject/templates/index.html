@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;">ONLINE BOOK STORE</h1>
+    <form action="onlinebook" method="POST">
+        {% csrf_token %}
+        <div style="display: flex; ">
+            <label>Titile Name:</label>
+            <input type="text" name="Titilename">&nbsp;&nbsp;&nbsp;
+            <label>Author Name:</label>
+            <input type="text" name="Authorname">&nbsp;&nbsp;&nbsp;
+            <label>Genre:</label>
+            <input type="text" name="Genre">&nbsp;&nbsp;&nbsp;
+        </div>
+        <div style="display: flex; margin-top: 50px;">
+            <label>Description:</label>
+            <input type="text" name="Description">&nbsp;&nbsp;&nbsp;
+            <label>Price:</label>
+            <input type="number" name="Price">&nbsp;&nbsp;&nbsp;
+            <label>published date:</label>
+            <input type="date" name="date">&nbsp;&nbsp;&nbsp;
+            <label>Rate</label>
+            <input type="number" name="rate">&nbsp;&nbsp;&nbsp;
+            <button type="submit">Click</button>&nbsp;&nbsp;&nbsp;
+        </div>
+    </form>
+
+    <table style="margin-top: 50px;">
+        <thead>
+            <tr>
+                <th>
+                    Titile Name
+                </th>
+                <th>
+                    Author Name
+                </th>
+                <th>
+                    Genre
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    published date
+                </th>
+                <th>
+                    Delete
+                </th>
+                <th>
+                    Edit
+                </th>
+                <th>
+                    Rate
+                </th>
+            </tr>
+            {% for i in data %}
+            <tr>
+                <td>
+                    {{i.Titlename}}
+                </td>
+                <td>
+                    {{i.Authorname}}
+                </td>
+                <td>
+                    {{i.Genre}}
+                </td>
+                <td>
+                    {{i.Description}}
+                </td>
+                <td>
+                    {{i.Price}}   
+                </td>
+                <td>
+                    {{i.Publisheddate}}
+                </td>
+                <td>
+                    <a href="{% url 'delete1' i.id %}">
+                        <button>Delete</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'edit' i.id %}">
+                        <button>Edit</button>
+                    </a>
+                </td>
+                <td>
+                    {{i.Rate}}
+                </td>
+            </tr>
+            {% endfor %}
+        </thead>
+    </table>
+</body>
+</html>
